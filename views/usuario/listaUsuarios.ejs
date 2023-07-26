@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%-include('../partials/navbarAdmin'); %>
+      <h3>Usuários Cadastrados</h3>
+      <br />
+      <a href="/admin/relatorioUsuarios" class="btn btn-primary">Top usuários</a>
+      <br /><br />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+          <tr>
+            <td><%=usuario.id%></td>
+            <td><%=usuario.nome%></td>
+            <td>
+              <a
+                href="/admin/deletarUsuario/<%=usuario.id%>"
+                class="fas fa-trash"
+                style="color: black"
+                ata-toggle="tooltip"
+                title="Deletar usuário."
+                onclick="return confirm('Confirma a exclusão?')"
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% if(msg){ %>
+    <div class="alert alert-info"><%= msg %></div>
+    <% } %> <%- include('../partials/footer'); %>
+  </body>
+</html>

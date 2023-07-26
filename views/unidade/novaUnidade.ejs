@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbarAdmin'); %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Cadastro de Unidade de Medida</h3>
+          <form action="/admin/novaUnidade" method="POST">
+            <div class="form-group">
+              <label for="nome">nome</label>
+              <input
+                class="form-control"
+                id="nome"
+                type="text"
+                name="nome"
+                placeholder="Informe o nome do ingrediente."
+                required
+              />
+              <label for="simbolo">Simbolo</label>
+              <input
+                class="form-control"
+                id="simbolo"
+                type="text"
+                name="simbolo"
+                placeholder="Informe o simbolo da Unidade."
+                required
+              />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Salvar" />
+          </form>
+        </div>
+      </div>
+      <% if(msg){ %>
+      <div class="alert alert-info"><strong>Novo registro!</strong> <%= msg %></div>
+      <% } %>
+    </div>
+    <%-include('../partials/footer'); %>
+  </body>
+</html>

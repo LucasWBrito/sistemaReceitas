@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbarAdmin'); %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Edição de uma Unidade de Medida</h3>
+          <br />
+          <form action="/admin/editarUnidade/<%=unidade.id%>" method="POST">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input
+                class="form-control"
+                id="nome"
+                type="text"
+                name="nome"
+                placeholder="Informe o nome da Unidade."
+                value="<%=unidade.nome%>"
+                required
+              />
+              <label for="simbolo">Simbolo</label>
+              <input
+                class="form-control"
+                id="simbolo"
+                type="text"
+                name="simbolo"
+                placeholder="Informe o simbolo da Unidade."
+                value="<%=unidade.simbolo%>"
+                required
+              />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Atualizar" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <%-include('../partials/footer'); %>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  </head>
+  <body>
+    <div class="container">
+      <%-include('../partials/navbar'); %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%=receita.nome%></h3>
+            <div class="form-group">
+              <label for="descricao">Descricao</label>
+              <input
+                class="form-control"
+                id="descricao"
+                type="text"
+                name="descricao"
+                value="<%=receita.descricao%>"
+                placeholder="Informe a descricao da Receita."
+                disabled
+              />
+              <label for="instrucao">Instruções</label>
+              <input
+                class="form-control"
+                id="instrucao"
+                type="text"
+                name="instrucao"
+                value="<%=receita.instrucao%>"
+                placeholder="Informe as instrucões de preparo."
+                disabled
+              />
+              <h5>Ingredientes</h5>
+              <ul class="list-group" id="listaIngredientes">
+                <% receita.ingredientes.forEach( ingrediente => { %>
+                    <li class="list-group-item"><%=ingrediente.nome%> <%=ingrediente.receita_ingrediente.quantidade%> <%=ingrediente.unidades[0].nome%></li>            
+                <% }); %> 
+              </ul>
+            </div>
+        </div>
+      </div>
+      <% if(msg){ %>
+      <div class="alert alert-info"><strong>Novo registro!</strong> <%= msg %></div>
+      <% } %>
+    </div>
+    <%-include('../partials/footer'); %>
+  </body>
+</html>

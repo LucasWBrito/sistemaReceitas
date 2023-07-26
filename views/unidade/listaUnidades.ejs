@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbarAdmin'); %>
+      <h3>Unidades de Medida Cadastradas</h3>
+      <br />
+      <a href="/admin/novaUnidade" class="btn btn-primary">Nova unidade de medida</a><br /><br />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Simbolo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% unidades.forEach(unidade => { %>
+          <tr>
+            <td><%=unidade.id%></td>
+            <td><%=unidade.nome%></td>
+            <td><%=unidade.simbolo%></td>
+            <td>
+              <a
+                href="/admin/editarUnidade/<%=unidade.id%>"
+                class="fas fa-edit"
+                style="color: black"
+                ata-toggle="tooltip"
+                title="Editar unidade."
+              ></a>
+            </td>
+            <td>
+              <a
+                href="/admin/deletarUnidade/<%=unidade.id%>"
+                class="fas fa-trash"
+                style="color: black"
+                ata-toggle="tooltip"
+                title="Deletar unidade."
+                onclick="return confirm('Confirma a exclusão?')"
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% if(msg){ %>
+    <div class="alert alert-info"><%= msg %></div>
+    <% } %> <%-include('../partials/footer'); %>
+  </body>
+</html>

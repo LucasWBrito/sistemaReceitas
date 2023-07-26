@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Cadastro de Usuário</h3>
+          <form action="/novoUsuario" method="POST">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input
+                class="form-control"
+                id="nome"
+                type="text"
+                name="nome"
+                placeholder="Informe seu nome."
+                required
+              />
+              <label for="login">Login</label>
+              <input
+                class="form-control"
+                id="login"
+                type="text"
+                name="login"
+                placeholder="Informe seu login."
+                required
+              />
+              <label for="senha">Senha</label>
+              <input
+                class="form-control"
+                id="senha"
+                type="password"
+                name="senha"
+                placeholder="Informe sua senha."
+                required
+              />
+              <input
+                class="form-control"
+                id="senha2"
+                type="password"
+                name="senha2"
+                placeholder="Repita sua senha."
+                required
+              />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Salvar" />
+          </form>
+          <a href="/" class="btn btn-secondary">Voltar</a>
+        </div>
+      </div>
+      <% if(msg){ %>
+      <div class="alert alert-warning"><%= msg %></div>
+      <% } %>
+    </div>
+    <%-include('../partials/footer'); %>
+  </body>
+</html>

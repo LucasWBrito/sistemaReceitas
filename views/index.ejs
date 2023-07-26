@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('./partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%-include('./partials/navbarAdmin'); %> <% if(usuario) { %>
+      <p class="text-muted text-right">Usuário: <%=usuario%></p>
+      <% } %>
+      <div class="jumbotron">
+        <h1>Bem vindo ao sistema de receitas culinarias!</h1>
+        <p>Selecione uma opção no menu acima...</p>
+      </div>
+    </div>
+  </body>
+</html>

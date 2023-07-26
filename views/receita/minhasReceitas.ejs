@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbar'); %>
+      <h3>Minhas Receitas</h3>
+      <br />
+      <a href="/novaReceita" class="btn btn-primary">Cadastrar Nova Receita</a><br /><br />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descricao</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% receitas.forEach(receita => { %>
+          <tr>
+            <td><%=receita.id%></td>
+            <td><%=receita.nome%></td>
+            <td><%=receita.descricao%></td>
+            <td>
+              <a
+                href="/editarReceita/<%=receita.id%>"
+                class="fas fa-edit"
+                style="color: black"
+                ata-toggle="tooltip"
+                title="Editar receita."
+              ></a>
+            </td>
+            <td>
+              <a
+                href="/deletarReceita/<%=receita.id%>"
+                class="fas fa-trash"
+                style="color: black"
+                ata-toggle="tooltip"
+                title="Deletar receita"
+                onclick="return confirm('Confirma a exclusão?')"
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% if(msg){ %>
+    <div class="alert alert-info"><%= msg %></div>
+    <% } %> <%-include('../partials/footer'); %>
+  </body>
+</html>

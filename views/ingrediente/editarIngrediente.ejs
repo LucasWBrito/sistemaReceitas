@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbarAdmin'); %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Edição de um ingrediente</h3>
+          <br />
+          <form action="/admin/editarIngrediente/<%=ingrediente.id%>" method="POST">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input
+                class="form-control"
+                id="nome"
+                type="text"
+                name="nome"
+                placeholder="Informe o nome do Ingrediente."
+                value="<%=ingrediente.nome%>"
+                required
+              />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Atualizar" />
+          </form>
+        </div>
+      </div>
+      <% if(msg){ %>
+      <div class="alert alert-info"><strong>Atualização!</strong> <%= msg %></div>
+      <% } %>
+    </div>
+    <%-include('../partials/footer'); %>
+  </body>
+</html>

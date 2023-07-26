@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('../partials/header'); %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/navbarAdmin'); %>
+      <h3>Top 10 usuários por Receita Cadastrada</h3>
+      <br />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Receitas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+          <tr>
+            <td><%=usuario.id%></td>
+            <td><%=usuario.nome%></td>
+            <td><%=usuario.qtd_receitas%></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>
