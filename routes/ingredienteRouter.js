@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {adminAuth} = require('../auth/auth');
+const {adminAuth, auth} = require('../auth/auth');
 
 const ingredienteController = require('../controllers/ingredienteController');
 
 router.get('/listaIngredientes', adminAuth, ingredienteController.getListaIngredientes);
-router.get('/listaIngredientesJSON', ingredienteController.getListaIngredientesJSON);
+router.get('/listaIngredientesJSON', auth, ingredienteController.getListaIngredientesJSON);
 router.get('/relatorioIngrediente', adminAuth, ingredienteController.getRelatorioIngrediente);
 router.get('/novoIngrediente', adminAuth, ingredienteController.getNovoIngrediente);
 router.get('/editarIngrediente/:id', adminAuth, ingredienteController.getEditarIngrediente);

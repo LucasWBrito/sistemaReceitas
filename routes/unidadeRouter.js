@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {adminAuth} = require('../auth/auth');
+const {adminAuth, auth} = require('../auth/auth');
 
 const unidadeController = require('../controllers/unidadeController');
 
 router.get('/listaUnidades', adminAuth, unidadeController.getListaUnidades);
-router.get('/listaUnidadesJSON', unidadeController.getListaUnidadesJSON);
+router.get('/listaUnidadesJSON', auth, unidadeController.getListaUnidadesJSON);
 router.get('/novaUnidade', adminAuth, unidadeController.getNovaUnidade);
 router.get('/editarUnidade/:id', adminAuth, unidadeController.getEditarUnidade);
 router.post('/novaUnidade', adminAuth, unidadeController.postNovaUnidade);
